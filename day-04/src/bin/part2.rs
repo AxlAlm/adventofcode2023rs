@@ -8,15 +8,12 @@ fn main() {
 
 #[derive(Debug, Clone)]
 struct Card {
-    won_cards: Vec<u32>, // winnig_numbers: HashSet<u32>,
-                         // scraped_numbers: HashSet<u32>,
+    won_cards: Vec<u32>,
 }
 
 fn create_card_map(input: &str) -> HashMap<u32, Card> {
     let mut cards: HashMap<u32, Card> = HashMap::new();
     for line in input.trim().lines() {
-        // println!("---------------------");
-        // dbg!(line);
         let cardheader_numbers: Vec<&str> = line.split(":").collect();
         let cardheader: Vec<&str> = cardheader_numbers[0].trim().split_whitespace().collect();
         let card_id = cardheader[1].parse::<u32>().unwrap();
